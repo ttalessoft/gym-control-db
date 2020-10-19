@@ -10,7 +10,7 @@ module.exports = {
     }
 
     if (!limit) {
-      limit = 2;
+      limit = 4;
     }
 
     let offset = limit * (page - 1);

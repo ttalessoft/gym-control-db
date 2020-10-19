@@ -128,7 +128,7 @@ module.exports = {
     }
 
     query = `${query}
-    GROUP BY instructors.id LIMIT $1 OFFSET $2
+    GROUP BY instructors.id LIMIT $1 OFFSET $2 
     `;
 
     db.query(query, [limit, offset], (err, results) => {
