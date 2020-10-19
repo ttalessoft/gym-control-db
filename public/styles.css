@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --cor-alfa: #85ffc7;
+  --cor-beta: #297373;
+  --cor-charlie: #ff8552;
+  --cor-delta: #e6e6e6;
+  --cor-echo: #39393a;
+  --cor-fundo: #34495e;
+  --cor-sucesso: #2ecc71;
+  --cor-alerta: #f1c40f;
+  --cor-perigo: #e74c3c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  background-color: var(--cor-delta);
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 32px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.links {
+  font-size: 22px;
+}
+
+.links a + a {
+  margin-left: 32px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #777777;
+  position: relative;
+}
+
+.links a.active {
+  color: var(--cor-charlie);
+  font-weight: bold;
+}
+
+.links a:hover {
+  color: var(--cor-perigo);
+  transition: 500ms;
+}
+
+.links a::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-perigo);
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+.links a:hover::after {
+  width: 100%;
+  transition: width 500ms cubic-bezier(1, 0.2, 0.65, 0.89);
+}
+
+/* card */
+.card {
+  background-color: #ffffff;
+  width: 800px;
+  min-height: 400px;
+
+  margin: 45px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  box-shadow: 10px 10px 20px #777777;
+
+  animation-name: up;
+  animation-duration: 1000ms;
+  animation-timing-function: ease;
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(128px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* details */
+
+.details {
+  padding: 32px;
+}
+
+.details .item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px 0;
+}
+
+.details .item:last-child {
+  border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--cor-beta);
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+
+.details .item div:nth-child(2) {
+  color: #777777;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.details h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--cor-charlie);
+}
+
+.details .item span {
+  padding: 8px 16px;
+  background-color: var(--cor-alerta);
+  border-radius: 16px;
+  color: #777777;
+  margin-right: 4px;
+  margin-top: 8px;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* form */
+
+input {
+  width: 100%;
+  outline: #2ecc71;
+  color: var(--cor-echo);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input[type='radio'] {
+  width: initial;
+  margin-right: 4px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: normal;
+  color: #cccccc;
+}
+
+button[type='submit'],
+a.button {
+  padding: 8px 32px;
+  background-color: var(--cor-beta);
+  color: #ffffff;
+  border-radius: 16px;
+  margin-top: 32px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+a.button {
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+}
+
+#form-delete button[type='submit'] {
+  margin-top: 8px;
+  background-color: var(--cor-perigo);
+  color: #ffffff;
+}
+
+/* index instructors */
+.table-container {
+  display: block;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.table-container table {
+  border-spacing: 0;
+}
+
+.table-container thead tr th {
+  text-align: left;
+}
+
+td,
+th {
+  padding: 16px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr td:last-child a,
+.table-container a {
+  background-color: var(--cor-charlie);
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.table-container > a {
+  margin-bottom: 32px;
+  display: inline-block;
+}
+
+.table-container thead tr th:last-child,
+td:last-child {
+  text-align: center;
+}
+
+/** filters */
+
+.table-container .header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.table-container .header a {
+  margin: 0;
+  width: 120px;
+}
+
+.table-container .header form {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  align-items: center;
+  grid-gap: 8px;
+}
+
+.table-container .header form input {
+  border: 1px solid #eee;
+  padding: 4px 8px;
+  /* box-sizing: border-box; */
+}
+.table-container .header form button {
+  margin: 0;
+}

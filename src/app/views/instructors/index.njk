@@ -1,0 +1,40 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+  <div class="card table-container">
+    <div class="header">
+      <a class="button" href="/instructors/create">Novo</a>
+      <form action="/instructors/" method="GET">
+        <input type="text" name="filter" placeholder="Filtrar por nome ou serviços...">
+        <button type="submit">Filtrar</button>
+      </form>
+    </div>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Photo</th>
+          <th>Instructor</th>
+          <th>Atendimento</th>
+          <th>Alunos</th>
+          <th width="120px">Buttons</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for instructor in instructors %}
+          <tr>
+            <td>{{instructor.id}}</td>
+            <td><img src="{{instructor.avatar_url}}" alt="{{instructor.name}}" style="height: 64px; border-radius:100%;"></td>
+            <td>{{instructor.name}}</td>
+            <td>{{instructor.services}}</td>
+            <td>{{instructor.total_members}}</td>
+            <td>
+              <a href="/instructors/{{instructor.id}}" style="background-color:var(--cor-charlie);">Ver</a>
+              <a href="/instructors/{{instructor.id}}/edit" style="background-color:var(--cor-beta);">Edit</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}
